@@ -58,4 +58,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dashboard/project', ProjectController::class)->except('show');
 });
 
+dapin
+
 require __DIR__ . '/auth.php';
