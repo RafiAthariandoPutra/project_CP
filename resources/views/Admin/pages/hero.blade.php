@@ -1,4 +1,7 @@
 @extends('Admin.layouts')
+@section('title', 'Hero Section')
+
+
 
 @section('dashboard')
     @push('style')

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Admin | @yield('title')</title>
     @vite('resources/css/app.css')
 
     <script async src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>

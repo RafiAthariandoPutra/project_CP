@@ -1,4 +1,7 @@
 @extends('Admin.layouts')
+@section('title', 'FAQ')
+
+
 
 @section('dashboard')
     <div

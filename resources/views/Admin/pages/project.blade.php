@@ -1,4 +1,8 @@
 @extends('Admin.layouts')
+@section('title', 'Project')
+
+
+
 
 @section('dashboard')
     <div data-dialog-backdrop="sign-in-modal" data-dialog-backdrop-close="true"
@@ -185,44 +189,44 @@
                     <tbody>
                         @foreach ($project as $item)
                             <tr>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <div class="flex items-center gap-4">
                                         <img src="/storage/{{ $item->image }}" alt="{{ $item->name }}"
                                             class="w-full relative rounded-md" />
                                     </div>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->name }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->client_name }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->description }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->service }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->start_date }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->end_date }}
                                     </p>
                                 </td>
 
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <form id="confirm" action="/dashboard/project/{{ $item->id }}" method="post">
                                         @method('delete')
                                         @csrf

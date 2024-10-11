@@ -1,4 +1,6 @@
 @extends('Admin.layouts')
+@section('title', 'Dashboard')
+
 
 @section('dashboard')
     <aside
@@ -542,7 +544,8 @@
                                                 style="font-family: inherit;">
                                                 <tspan id="SvgjsTspan1404">S</tspan>
                                                 <title>S</title>
-                                            </text></g>
+                                            </text>
+                                        </g>
                                     </g>
                                     <g id="SvgjsG1425" class="apexcharts-yaxis-annotations"></g>
                                     <g id="SvgjsG1426" class="apexcharts-xaxis-annotations"></g>

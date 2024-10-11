@@ -1,18 +1,21 @@
 <?php
 
+use App\Models\FAQ;
+use App\Models\Hero;
+use App\Models\Team;
+use App\Models\Project;
+use App\Models\Service;
+use App\Models\Testimonal;
+use App\Models\TrustedCompany;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonalController;
 use App\Http\Controllers\TrustedCompanyController;
-use App\Models\FAQ;
-use App\Models\Hero;
-use App\Models\Service;
-use App\Models\TrustedCompany;
-use Illuminate\Support\Facades\Route;
 
 
 
@@ -34,10 +37,16 @@ Route::get('/', function () {
     $hero = Hero::first();
     $services = Service::get();
     $faqs = FAQ::get();
+    $project = Project::get();
+    $team = Team::get();
+    $testimonal = Testimonal::get();
 
 
-    return view('home', compact('trustedCompanies', 'hero', 'services', 'faqs'));
+    return view('home', compact('trustedCompanies', 'hero', 'testimonal', 'team', 'project', 'services', 'faqs'));
 });
+
+Route::get('/project/{project:slug}', [ProjectController::class, 'show']);
+Route::get('/team/{team:slug}', [TeamController::class, 'show']);
 
 
 Route::get('/dashboard', function () {
@@ -57,7 +66,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dashboard/faq', FAQController::class)->except('show');
     Route::resource('/dashboard/project', ProjectController::class)->except('show');
 });
-
-rafi kocak
 
 require __DIR__ . '/auth.php';

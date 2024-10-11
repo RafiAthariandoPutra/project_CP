@@ -1,4 +1,6 @@
 @extends('Admin.layouts')
+@section('title', 'Testimonal')
+
 
 @section('dashboard')
     <div data-dialog-backdrop="sign-in-modal" data-dialog-backdrop-close="true"
@@ -62,10 +64,10 @@
                                 @enderror
                             </div>
                             <div class="w-full ">
-                                <div class="relative w-full ">
+                                <div class="relative w-full">
                                     <textarea name="message"
                                         class="peer h-full min-h-[100px] placeholder:text-slate-400 text-slate-700 text-sm  border-slate-200 w-full resize-none rounded-[7px] border border-t-transparent bg-transparent px-3 py-2.5 font-sans font-normal  outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-                                        placeholder="Massage...">
+                                        placeholder="">
                                   </textarea>
                                     @error('massage')
                                         <p class="text-red-500 text-xs mt-1">
@@ -170,39 +172,44 @@
                                     Rating
                                 </p>
                             </th>
+                            <th class="border-b border-blue-gray-50 py-3 px-5 text-left">
+                                <p class="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">
+                                    Action
+                                </p>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($testimonal as $item)
                             <tr>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3 w-36 px-5 border-b border-blue-gray-50">
                                     <div class="flex items-center gap-4">
                                         <img src="/storage/{{ $item->client_image }}" alt="{{ $item->client_name }}"
                                             style="border-radius:50%" class="w-20 h-20  object-cover" />
                                     </div>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->client_name }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->client_position }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->message }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $item->rating }}
                                     </p>
                                 </td>
 
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <form id="confirm" action="/dashboard/testimonal/{{ $item->id }}"
                                         method="post">
                                         @method('delete')

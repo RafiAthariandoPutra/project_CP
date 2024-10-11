@@ -4,7 +4,7 @@
 
 @section('content')
     <!--...::: Hero Section Start :::... -->
-    <section id="section-hero">
+    <section id="home">
         <!-- Section Spacer -->
         <div
             class="relative h-screen z-[1] overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-colorLinenRuffle pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]">
@@ -49,6 +49,7 @@
                         <!-- Slides -->
                         @foreach ($trustedCompanies as $item)
                             <div class="swiper-slide">
+
                                 <img src="/storage/{{ $item['company_logo'] }}" alt="{{ $item->company_name }}"
                                     width="180" height="38" class="max-w-full" />
                             </div>
@@ -72,7 +73,7 @@
     <!--...::: Hero Section End :::... -->
 
     <!--...::: Service Section Start :::... -->
-    <section id="section-service">
+    <section id="service">
         <!-- Section Spacer -->
         <div class="pb-20 pt-20 xl:pb-[150px] xl:pt-[130px]">
             <!-- Section Container -->
@@ -80,7 +81,7 @@
                 <!-- Section Content Block -->
                 <div class="jos mb-10 lg:mb-16 xl:mb-20">
                     <div class="md:max-w-sm lg:max-w-xl xl:max-w-[746px]">
-                        <h2>Core features that make it valuable</h2>
+                        <h2>Our Services</h2>
                     </div>
                 </div>
                 <!-- Section Content Block -->
@@ -91,7 +92,12 @@
                     @foreach ($services as $item)
                         <!-- Service Item -->
                         <li class="group bg-white p-[30px] transition-all duration-300 ease-in-out hover:bg-black">
-
+                            {{-- <div class="relative mb-9 h-[70px] w-[70px]">
+                                <img src="/assets/img/speed-black.png" alt="" width="70" height="70" />
+                                <img src="/assets/img/speed-orange.png" alt="service-icon-orange-1" width="70"
+                                    height="70"
+                                    class="absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100" />
+                            </div> --}}
                             <h3
                                 class="mb-4 block text-xl leading-tight -tracking-[0.5px] group-hover:text-white xl:text-2xl xxl:text-[28px]">
                                 <a class='hover:text-colorOrangyRed' href='/service-details'>
@@ -103,13 +109,14 @@
                                 {{ $item->description }}
                             </p>
 
-                            <a class='relative inline-block h-[30px] w-[30px] duration-300' href='/service-details'>
-                                <img src="{{ asset('assets/img/arrow-right-black.svg') }}" alt="arrow-right-black"
-                                    width="30" height="30" />
-                                <img src="{{ asset('assets/img/arrow-right-orange.svg') }}" alt="arrow-right-black"
-                                    width="30" height="30"
+                            {{-- <a class='relative inline-block h-[30px] w-[30px] duration-300' href='/service-details'>
+                                <img src="assets/img/arrow-right-black.svg" alt="arrow-right-black" width="30"
+                                    height="30" />
+                                <img src="assets/img/arrow-right-orange.svg" alt="arrow-right-black" width="30"
+                                    height="30"
                                     class="absolute left-0 top-0 h-full w-full opacity-0 transition-all duration-300 ease-linear group-hover:opacity-100" />
-                            </a>
+
+                            </a> --}}
                         </li>
                         <!-- Service Item -->
                     @endforeach
@@ -124,36 +131,42 @@
     <!--...::: Service Section End :::... -->
 
     <!--...::: Content Section Start :::... -->
-    <section id="content-section-1">
+    {{-- @foreach ($project as $item) --}}
+    <section id="project">
         <!-- Section Spacer -->
         <div class="pb-20 xl:pb-[150px]">
             <!-- Section Container -->
             <div class="global-container">
+                <div class="jos mb-12 text-center lg:mb-16 xl:mb-20">
+                    <div class="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
+                        <h2>Our projects</h2>
+                    </div>
+                </div>
                 <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-20 xl:gap-28 xxl:gap-32">
                     <!-- Content Left Block -->
                     <div class="jos order-2 overflow-hidden rounded-md md:order-1" data-jos_animation="fade-left">
-                        <img src="assets/img/th-1/content-image-1.jpg" alt="content-image-1" width="526" height="450"
-                            class="h-auto w-full" />
+                        <a href="/project/{{ $project[1]->slug }}">
+                            <img src="/storage/{{ $project[1]->image }}" alt="content-image-1" width="526" height="450"
+                                class="h-auto w-full" />
+                        </a>
                     </div>
                     <!-- Content Left Block -->
                     <!-- Content Right Block -->
                     <div class="jos order-1 md:order-2" data-jos_animation="fade-right">
                         <!-- Section Content Block -->
                         <div class="mb-6">
-                            <h2>Accessible to a wider audience</h2>
+                            <h2>{{ $project[1]->name }}</h2>
                         </div>
                         <!-- Section Content Block -->
                         <div class="text-lg leading-[1.4] lg:text-[21px]">
                             <p class="mb-7 last:mb-0">
+                                {{ $project[1]->description }}
+                            </p>
+                            {{-- <p class="mb-7 last:mb-0">
                                 Advanced AI capabilities accessible to a broader audience,
                                 including small & medium-sized businesses and individuals
                                 who may not have the resources or expertise to develop.
-                            </p>
-                            <p class="mb-7 last:mb-0">
-                                Advanced AI capabilities accessible to a broader audience,
-                                including small & medium-sized businesses and individuals
-                                who may not have the resources or expertise to develop.
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                     <!-- Content Right Block -->
@@ -163,37 +176,38 @@
         </div>
         <!-- Section Spacer -->
     </section>
+    {{-- @endforeach --}}
     <!--...::: Content Section End :::... -->
 
     <!--...::: Content Section Start :::... -->
-    <section id="content-section-2">
+    <section id="project">
         <!-- Section Spacer -->
         <div class="pb-20 xl:pb-[150px]">
             <!-- Section Container -->
             <div class="global-container">
+
                 <div
                     class="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-20 xl:grid-cols-[minmax(0,_1.2fr)_1fr] xl:gap-28 xxl:gap-32">
                     <!-- Content Left Block -->
                     <div class="jos order-2 overflow-hidden rounded-md" data-jos_animation="fade-left">
-                        <img src="assets/img/th-1/content-image-2.jpg" alt="content-image-2" width="526" height="450"
-                            class="h-auto w-full" />
+                        <a href="/project/{{ $project[0]->slug }}">
+                            <img src="/storage/{{ $project[0]->image }}" alt="content-image-2" width="526"
+                                height="450" class="h-auto w-full" />
+                        </a>
                     </div>
                     <!-- Content Left Block -->
                     <!-- Content Right Block -->
                     <div class="jos order-1" data-jos_animation="fade-right">
                         <!-- Section Content Block -->
                         <div class="mb-6">
-                            <h2>Providing quick deploy solutions</h2>
+                            <h2>{{ $project[0]->name }}</h2>
                         </div>
                         <!-- Section Content Block -->
                         <div class="text-lg leading-[1.4] lg:text-[21px]">
                             <p class="mb-7 last:mb-0">
-                                Our AI SaaS solutions can be quickly deployed, enabling
-                                users to start benefiting from AI capabilities without
-                                lengthy setup and development times in fast-paced
-                                industries.
+                                {{ $project[0]->description }}
                             </p>
-                            <ul
+                            {{-- <ul
                                 class="flex flex-col gap-y-5 font-dmSans text-xl leading-tight tracking-tighter text-black lg:mt-12 lg:text-[28px]">
                                 <li class="flex items-start gap-x-3">
                                     <div class="mt-[2.5px] h-[30px] w-[30px]">
@@ -216,7 +230,7 @@
                                     </div>
                                     Time savings translate to cost savings
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                     <!-- Content Right Block -->
@@ -228,290 +242,165 @@
     </section>
     <!--...::: Content Section End :::... -->
 
-    <!--...::: Funfact Section Start :::... -->
-    <section id="funfact-section">
-        <div class="mx-auto max-w-[1500px] px-5">
-            <div
-                class="jos grid grid-cols-1 overflow-hidden rounded-[30px] bg-black lg:rounded-[50px] xl:grid-cols-[minmax(400px,_1fr)_1.5fr] xxl:grid-cols-[1fr_minmax(800px,_1fr)]">
-                <!-- Funfact Left Block -->
-                <div class="relative overflow-hidden rounded-[30px] lg:rounded-[50px]">
-                    <img src="assets/img/th-1/funfact-image.jpg" alt="funfact-image" width="721" height="784"
-                        class="h-80 w-full object-cover object-center lg:h-[35rem] xl:h-full" />
-                    <!-- Video Play Button -->
-                    <a data-fslightbox="gallery" href="https://www.youtube.com/watch?v=3nQNiWdeH2Q"
-                        class="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2">
-                        <div
-                            class="relative flex h-[120px] w-[120px] items-center justify-center rounded-full border-[3px] border-black text-lg font-bold backdrop-blur-[2px] transition-all duration-300 hover:bg-colorOrangyRed hover:text-white">
-                            Play
-                            <div
-                                class="absolute -z-[1] h-[110%] w-[110%] animate-[ping_1.5s_ease-in-out_infinite] rounded-full bg-gray-600 opacity-30">
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Video Play Button -->
-                </div>
-                <!-- Funfacct Left Block -->
 
-                <!-- Funfact Right Block -->
-                <div class="self-center px-6 py-16 sm:py-20 md:px-16 xl:px-10 xl:py-24 xxl:py-32 xxl:pl-16 xxl:pr-28">
-                    <!-- Section Content Block -->
-                    <div class="mb-8 lg:mb-16 xl:mb-6">
-                        <h2 class="text-white">AI-powered that streamline tasks</h2>
-                    </div>
-                    <!-- Section Content Block -->
-                    <div class="text-left text-lg leading-[1.4] text-white lg:text-[21px]">
-                        <p class="mb-7 last:mb-0">
-                            As your business grows or your AI SaaS needs change, you can
-                            easily adjust your subscription level to match those needs.
-                            This flexibility ensures that AI remains an asset.
-                        </p>
-                    </div>
-                    <!-- Horizontal Separator -->
-                    <div class="my-14 h-[1px] w-full bg-colorCodGray"></div>
-                    <!-- Counter Scroll -->
-                    <ul
-                        class="flex flex-col justify-center gap-x-11 gap-y-8 text-center sm:flex-row md:text-left xl:justify-normal xl:text-left xxl:gap-x-20">
-                        <!-- Counter Items -->
-                        <li>
-                            <h3 class="text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl xxl:text-[120px]"
-                                data-module="countup">
-                                <span class="start-number" data-countup-number="92">92</span>%
-                            </h3>
-                            <span class="block text-lg font-normal text-white lg:text-[21px]">
-                                Customer service inquiries
-                            </span>
-                        </li>
-                        <!-- Counter Items -->
-                        <!-- Counter Items -->
-                        <li>
-                            <h3 class="text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl xxl:text-[120px]"
-                                data-module="countup">
-                                <span class="start-number" data-countup-number="75">75</span>%
-                            </h3>
-                            <span class="block text-lg font-normal text-white lg:text-[21px]">
-                                Using financial institutions
-                            </span>
-                        </li>
-                        <!-- Counter Items -->
-                    </ul>
-                    <!-- Counter Scroll -->
-                </div>
-                <!-- Funfact Right Block -->
-            </div>
-        </div>
-    </section>
-    <!--...::: Funfact Section End :::... -->
-
-    <!--...::: Pricing Section Start :::... -->
-    <section class="pricing-section">
+    <!--...::: Team Section Start :::... -->
+    <section id="team">
         <!-- Section Spacer -->
-        <div class="pb-20 pt-20 xl:pb-[150px] xl:pt-[130px]">
+        <div class="pb-40 xl:pb-[220px]">
             <!-- Section Container -->
             <div class="global-container">
                 <!-- Section Content Block -->
-                <div class="jos mb-10 text-center lg:mb-12">
+                <div class="jos mb-10 text-center lg:mb-16 xl:mb-20">
                     <div class="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
-                        <h2>Cost-effectively build any software</h2>
+                        <h2>Our team consists of a group of talents</h2>
                     </div>
                 </div>
                 <!-- Section Content Block -->
-                <!-- Pricing Block -->
-                <div class="container mx-auto">
-                    <!-- Tab buttons -->
-                    <div class="jos flex justify-center" data-jos_animation="fade">
-                        <div class="inline-flex space-x-4 rounded-[50px] border-2 border-black font-semibold">
-                            <button class="tab-button price-button active" data-tab="monthly">
-                                Monthly
-                            </button>
-                            <button class="tab-button price-button" data-tab="annually">
-                                Annually
-                            </button>
-                        </div>
-                    </div>
 
-                    <!-- Pricing Block -->
-                    <div class="mt-12 lg:mt-16 xl:mt-20">
-                        <!-- Price List -->
-                        <ul id="monthly" class="tab-content grid grid-cols-1 gap-6 md:grid-cols-2 xxl:grid-cols-3">
-                            <!-- Price Item -->
-                            <li class="jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black"
-                                data-jos_animation="flip" data-jos_delay="0">
-                                <h3
-                                    class="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Beginner
-                                </h3>
-                                <span
-                                    class="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">Up
-                                    to 10 members</span>
+                <!-- Team Member List -->
+                <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Team Member Item -->
+                    @foreach ($team as $item)
+                        <li class="jos rounded-[20px] bg-colorLinenRuffle p-[20px]" data-jos_animation="flip"
+                            data-jos_delay="0.1">
+                            <div class="xl:h[300px] w-full overflow-hidden rounded-[20px] xxl:h-[400px]">
 
-                                <div class="my-5 h-[1px] w-full bg-[#DBD6CF]"></div>
-                                <h4
-                                    class="mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]">
-                                    $25<span class="text-lg font-semibold">/Per month</span>
-                                </h4>
-                                <p
-                                    class="mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    This is an excellent option for people & small
-                                    businesses who are starting out.
-                                </p>
-                                <a class='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                                    href='/pricing'>Choose
-                                    the plan</a>
-                            </li>
-                            <!-- Price Item -->
-                            <!-- Price Item -->
-                            <li class="jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black"
-                                data-jos_animation="flip" data-jos_delay="0">
-                                <h3
-                                    class="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Starter
-                                </h3>
-                                <span
-                                    class="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">Up
-                                    to 50 members</span>
+                                <a href="/team/{{ $item->slug }}">
+                                    <img src="/storage/{{ $item->image }}" alt="team-member-img-1" width="376"
+                                        height="400" class="h-full w-full object-cover" />
+                                </a>
+                            </div>
 
-                                <div class="my-5 h-[1px] w-full bg-[#DBD6CF]"></div>
-                                <h4
-                                    class="mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]">
-                                    $89<span class="text-lg font-semibold">/Per month</span>
-                                </h4>
-                                <p
-                                    class="mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    This plan is suitable for e-commerce stores as well as
-                                    professional blogs.
-                                </p>
-                                <a class='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                                    href='/pricing'>Choose
-                                    the plan</a>
-                            </li>
-                            <!-- Price Item -->
-                            <!-- Price Item -->
-                            <li class="jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black"
-                                data-jos_animation="flip" data-jos_delay="0">
-                                <h3
-                                    class="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Pro
-                                </h3>
-                                <span
-                                    class="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">Up
-                                    to 100 members</span>
+                            <div class="mt-5">
+                                <a class='font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]'
+                                    href='/team-details'>
+                                    {{ $item->name }}
+                                </a>
+                                <div
+                                    class="mt-3 flex flex-col justify-between gap-3 xxl:flex-row xxl:flex-wrap xxl:items-center">
+                                    <span class="text-[21px]">{{ $item->position }}</span>
+                                    <ul class="mt-auto flex gap-x-[15px]">
+                                        <li>
+                                            <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                                                class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
+                                                <img src="assets/img/facebook-icon-white.svg" alt="facebook"
+                                                    width="14" height="14"
+                                                    class="opacity-100 group-hover:opacity-0" />
+                                                <img src="assets/img/facebook-icon-black.svg" alt="facebook"
+                                                    width="14" height="14"
+                                                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer"
+                                                class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
+                                                <img src="assets/img/twitter-icon-white.svg" alt="twitter"
+                                                    width="14" height="14"
+                                                    class="opacity-100 group-hover:opacity-0" />
+                                                <img src="assets/img/twitter-icon-black.svg" alt="twitter"
+                                                    width="14" height="14"
+                                                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                                                class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
+                                                <img src="assets/img/linkedin-icon-white.svg" alt="linkedin"
+                                                    width="14" height="14"
+                                                    class="opacity-100 group-hover:opacity-0" />
+                                                <img src="assets/img/linkedin-icon-black.svg" alt="linkedin"
+                                                    width="14" height="14"
+                                                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                                                class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
+                                                <img src="assets/img/instagram-icon-white.svg" alt="instagram"
+                                                    width="14" height="14"
+                                                    class="opacity-100 group-hover:opacity-0" />
+                                                <img src="assets/img/instagram-icon-black.svg" alt="instagram"
+                                                    width="14" height="14"
+                                                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Team Member Item -->
+                    @endforeach
 
-                                <div class="my-5 h-[1px] w-full bg-[#DBD6CF]"></div>
-                                <h4
-                                    class="mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]">
-                                    $199<span class="text-lg font-semibold">/Per month</span>
-                                </h4>
-                                <p
-                                    class="mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Ideal for handling complicated projects enterprise-level
-                                    projects, and websites.
-                                </p>
-                                <a class='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                                    href='/pricing'>Choose
-                                    the plan</a>
-                            </li>
-                            <!-- Price Item -->
-                        </ul>
-                        <!-- Price List -->
-                        <!-- Price List -->
-                        <ul id="annually"
-                            class="tab-content grid hidden grid-cols-1 gap-6 md:grid-cols-2 xxl:grid-cols-3">
-                            <!-- Price Item -->
-                            <li class="jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black"
-                                data-jos_animation="flip" data-jos_delay="0">
-                                <h3
-                                    class="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Beginner
-                                </h3>
-                                <span
-                                    class="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">Up
-                                    to 10 members</span>
-
-                                <div class="my-5 h-[1px] w-full bg-[#DBD6CF]"></div>
-                                <h4
-                                    class="mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]">
-                                    $240<span class="text-lg font-semibold">/Per year</span>
-                                </h4>
-                                <p
-                                    class="mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    This is an excellent option for people & small
-                                    businesses who are starting out.
-                                </p>
-                                <a class='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                                    href='/pricing'>Choose
-                                    the plan</a>
-                            </li>
-                            <!-- Price Item -->
-                            <!-- Price Item -->
-                            <li class="jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black"
-                                data-jos_animation="flip" data-jos_delay="0">
-                                <h3
-                                    class="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Starter
-                                </h3>
-                                <span
-                                    class="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">Up
-                                    to 50 members</span>
-
-                                <div class="my-5 h-[1px] w-full bg-[#DBD6CF]"></div>
-                                <h4
-                                    class="mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]">
-                                    $960<span class="text-lg font-semibold">/Per year</span>
-                                </h4>
-                                <p
-                                    class="mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    This plan is suitable for e-commerce stores as well as
-                                    professional blogs.
-                                </p>
-                                <a class='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                                    href='/pricing'>Choose
-                                    the plan</a>
-                            </li>
-                            <!-- Price Item -->
-                            <!-- Price Item -->
-                            <li class="jos group flex flex-col rounded-[10px] bg-colorLinenRuffle p-10 transition-all duration-300 ease-linear hover:bg-black"
-                                data-jos_animation="flip" data-jos_delay="0">
-                                <h3
-                                    class="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Pro
-                                </h3>
-                                <span
-                                    class="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">Up
-                                    to 100 members</span>
-
-                                <div class="my-5 h-[1px] w-full bg-[#DBD6CF]"></div>
-                                <h4
-                                    class="mb-4 font-dmSans text-5xl font-bold leading-none text-black transition-all duration-300 ease-linear group-hover:text-white md:text-6xl lg:text-7xl xl:text-[80px]">
-                                    $1800<span class="text-lg font-semibold leading-none">/Per year</span>
-                                </h4>
-                                <p
-                                    class="mb-10 text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
-                                    Ideal for handling complicated projects enterprise-level
-                                    projects, and websites.
-                                </p>
-                                <a class='button mt-auto block rounded-[50px] border-2 border-black bg-transparent py-4 text-center text-black transition-all duration-300 ease-linear after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-black group-hover:border-colorOrangyRed group-hover:text-white'
-                                    href='/pricing'>Choose
-                                    the plan</a>
-                            </li>
-                            <!-- Price Item -->
-                        </ul>
-                        <!-- Price List -->
-                    </div>
-                    <!-- Pricing Block -->
-                </div>
+                </ul>
+                <!-- Team Member List -->
             </div>
             <!-- Section Container -->
         </div>
         <!-- Section Spacer -->
     </section>
-    <!--...::: Pricing Section End :::... -->
+    <!--...::: Team Section End :::... -->
+
+    <!--...::: Testimonial Section Start :::... -->
+    <section id="testimonial" class="testimonial-section">
+        <!-- Section Spacer -->
+        <div class="bg-black pb-40 pt-20 xl:pb-[200px] xl:pt-[130px]">
+            <!-- Section Container -->
+            <div class="global-container">
+                <!-- Section Content Block -->
+                <div class="jos mb-10 text-center lg:mb-16 xl:mb-20">
+                    <div class="mx-auto max-w-[300px] lg:max-w-[600px] xl:max-w-[680px]">
+                        <h2 class="text-white">Positive feedback from our users</h2>
+                    </div>
+                </div>
+                <!-- Section Content Block -->
+
+                <!-- Testimonial List -->
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Testimonial Item -->
+                    @foreach ($testimonal as $item)
+                        <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
+                            data-jos_animation="fade-left" data-jos_delay="0.1">
+                            <div class="block">
+                                <img src="" alt="rating" width="146" height="25" />
+                            </div>
+                            <p>
+                                {{ $item->message }}
+                            </p>
+                            <div class="flex items-center gap-x-4">
+                                <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
+                                    <img src="/storage/{{ $item->client_image }}" alt="testimonial-img" width="60"
+                                        height="60" class="h-full w-full object-cover object-center" />
+                                </div>
+                                <div class="flex flex-col gap-y-1">
+                                    <span class="block text-lg font-semibold leading-[1.6]">
+                                        {{ $item->client_name }}
+                                    </span>
+                                    <span class="block text-sm font-light leading-[1.4]">
+                                        {{ $item->client_position }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <!-- Testimonial Item -->
+                </div>
+                <!-- Testimonial List -->
+            </div>
+            <!-- Section Container -->
+        </div>
+        <!-- Section Spacer -->
+    </section>
+    <!--...::: Testimonial Section Start :::... -->
+
+
+
 
     <!--...::: FAQ Section Start :::... -->
-    <section class="faq-section">
+    <section id="faq" class="faq-section ">
         <!-- Section Spacer -->
         <div class="pb-20 xl:pb-[150px]">
             <!-- Section Container -->
-            <div class="global-container">
+            <div class="global-container pt-20">
                 <div class="grid grid-cols-1 gap-y-10 md:grid-cols-2">
                     <!-- FAQ Left Block -->
                     <div class="jos flex flex-col" data-jos_animation="fade-right">
@@ -572,189 +461,69 @@
     </section>
     <!--...::: FAQ Section End :::... -->
 
-    <!--...::: Testimonial Section Start :::... -->
-    <section class="testimonial-section">
+    <!--...::: About Contact Section Start :::... -->
+    <section id="contact">
         <!-- Section Spacer -->
-        <div class="bg-black pb-40 pt-20 xl:pb-[200px] xl:pt-[130px]">
+        <div class="bg-black pb-20 pt-20 xl:pb-[150px] xl:pt-[130px]">
             <!-- Section Container -->
             <div class="global-container">
-                <!-- Section Content Block -->
-                <div class="jos mb-10 text-center lg:mb-16 xl:mb-20">
-                    <div class="mx-auto max-w-[300px] lg:max-w-[600px] xl:max-w-[680px]">
-                        <h2 class="text-white">Positive feedback from our users</h2>
+                <div class="grid grid-cols-1 items-center gap-14 md:grid-cols-[minmax(0,_1fr)_1.4fr]">
+                    <!-- Content Left Block -->
+                    <div class="jos order-2 overflow-hidden rounded-[20px] md:order-1" data-jos_animation="fade-right">
+                        <img src="assets/img/about-contact-img.jpg" alt="about-contact-img" width="526"
+                            height="550" class="h-auto w-full" />
                     </div>
-                </div>
-                <!-- Section Content Block -->
+                    <!-- Content Left Block -->
+                    <!-- Content Right Block -->
+                    <div class="jos order-1 md:order-2" data-jos_animation="fade-down">
+                        <!-- Section Content Block -->
+                        <div class="mb-6 md:max-w-max">
+                            <h2 class="text-white">
+                                We always want to connect our clients
+                            </h2>
+                        </div>
+                        <!-- Section Content Block -->
+                        <div class="text-left text-lg leading-[1.4] text-white lg:text-[21px]">
+                            <p class="mb-7 last:mb-0">
+                                AI accessible and beneficial for organizations, and we
+                                look forward to partnering with businesses to achieve
+                                their AI goals.
+                            </p>
+                        </div>
 
-                <!-- Testimonial List -->
-                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Testimonial Item -->
-                    <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
-                        data-jos_animation="fade-left" data-jos_delay="0.1">
-                        <div class="block">
-                            <img src="assets/img/th-1/rating.svg" alt="rating" width="146" height="25" />
-                        </div>
-                        <p>
-                            “This AI SaaS tool has revolutionized the way we process and
-                            analyze data. This is a game-changer for our business.”
-                        </p>
-                        <div class="flex items-center gap-x-4">
-                            <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
-                                <img src="assets/img/th-1/testimonial-img-1.jpg" alt="testimonial-img" width="60"
-                                    height="60" class="h-full w-full object-cover object-center" />
-                            </div>
-                            <div class="flex flex-col gap-y-1">
-                                <span class="block text-lg font-semibold leading-[1.6]">
-                                    Max Weber
-                                </span>
-                                <span class="block text-sm font-light leading-[1.4]">
-                                    HR Manager
-                                </span>
-                            </div>
-                        </div>
+                        <ul
+                            class="mt-10 flex flex-col gap-6 font-dmSans text-[30px] tracking-[1.33] lg:mt-14 lg:gap-y-3 xl:mt-[70px]">
+                            <li
+                                class="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
+                                Website:
+                                <a href="https://www.example.com"
+                                    class="text-white hover:text-colorOrangyRed">www.example.com</a>
+                            </li>
+                            <li
+                                class="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
+                                Email:
+                                <a href="mailto:yourmail@mail.com"
+                                    class="text-white hover:text-colorOrangyRed">yourmail@mail.com</a>
+                            </li>
+                            <li
+                                class="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
+                                Phone:
+                                <a href="tel:+1234567890" class="text-white hover:text-colorOrangyRed">(123)
+                                    456-7890</a>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- Testimonial Item -->
-                    <!-- Testimonial Item -->
-                    <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
-                        data-jos_animation="fade-left" data-jos_delay="0.2">
-                        <div class="block">
-                            <img src="assets/img/th-1/rating.svg" alt="rating" width="146" height="25" />
-                        </div>
-                        <p>
-                            "It answers immediately, and we've seen a significant
-                            reduction in response time. Our customers love it and so do
-                            we!"
-                        </p>
-                        <div class="flex items-center gap-x-4">
-                            <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
-                                <img src="assets/img/th-1/testimonial-img-2.jpg" alt="testimonial-img" width="60"
-                                    height="60" class="h-full w-full object-cover object-center" />
-                            </div>
-                            <div class="flex flex-col gap-y-1">
-                                <span class="block text-lg font-semibold leading-[1.6]">
-                                    Douglas Smith
-                                </span>
-                                <span class="block text-sm font-light leading-[1.4]">
-                                    Businessman
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Item -->
-                    <!-- Testimonial Item -->
-                    <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
-                        data-jos_animation="fade-left" data-jos_delay="0.3">
-                        <div class="block">
-                            <img src="assets/img/th-1/rating.svg" alt="rating" width="146" height="25" />
-                        </div>
-                        <p>
-                            "It is accurate, fast and supports multiple languages
-                            support. It is a must for any international business
-                            success."
-                        </p>
-                        <div class="flex items-center gap-x-4">
-                            <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
-                                <img src="assets/img/th-1/testimonial-img-3.jpg" alt="testimonial-img" width="60"
-                                    height="60" class="h-full w-full object-cover object-center" />
-                            </div>
-                            <div class="flex flex-col gap-y-1">
-                                <span class="block text-lg font-semibold leading-[1.6]">
-                                    Abraham Maslo
-                                </span>
-                                <span class="block text-sm font-light leading-[1.4]">
-                                    Founder @ Marketing Company
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Item -->
-                    <!-- Testimonial Item -->
-                    <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
-                        data-jos_animation="fade-right" data-jos_delay="0.1">
-                        <div class="block">
-                            <img src="assets/img/th-1/rating.svg" alt="rating" width="146" height="25" />
-                        </div>
-                        <p>
-                            "Security is a top concern for us, and AI SaaS takes it
-                            seriously. It's a reassuring layer of protection for our
-                            organization."
-                        </p>
-                        <div class="flex items-center gap-x-4">
-                            <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
-                                <img src="assets/img/th-1/testimonial-img-4.jpg" alt="testimonial-img" width="60"
-                                    height="60" class="h-full w-full object-cover object-center" />
-                            </div>
-                            <div class="flex flex-col gap-y-1">
-                                <span class="block text-lg font-semibold leading-[1.6]">
-                                    Jack Fayol
-                                </span>
-                                <span class="block text-sm font-light leading-[1.4]">
-                                    HR Manager
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Item -->
-                    <!-- Testimonial Item -->
-                    <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
-                        data-jos_animation="fade-right" data-jos_delay="0.2">
-                        <div class="block">
-                            <img src="assets/img/th-1/rating.svg" alt="rating" width="146" height="25" />
-                        </div>
-                        <p>
-                            "We were concerned about integrating their APIs were well
-                            documented, and their support team was super cool."
-                        </p>
-                        <div class="flex items-center gap-x-4">
-                            <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
-                                <img src="assets/img/th-1/testimonial-img-5.jpg" alt="testimonial-img" width="60"
-                                    height="60" class="h-full w-full object-cover object-center" />
-                            </div>
-                            <div class="flex flex-col gap-y-1">
-                                <span class="block text-lg font-semibold leading-[1.6]">
-                                    Karen Lynn
-                                </span>
-                                <span class="block text-sm font-light leading-[1.4]">
-                                    Software Engineer
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Item -->
-                    <!-- Testimonial Item -->
-                    <div class="jos flex flex-col gap-y-8 rounded-[10px] border-[1px] border-colorCodGray p-[30px] text-white"
-                        data-jos_animation="fade-right" data-jos_delay="0.3">
-                        <div class="block">
-                            <img src="assets/img/th-1/rating.svg" alt="rating" width="146" height="25" />
-                        </div>
-                        <p>
-                            "The return on investment has exceeded our expectations.
-                            it's an investment in the future of our business."
-                        </p>
-                        <div class="flex items-center gap-x-4">
-                            <div class="h-[60px] w-[60px] overflow-hidden rounded-full">
-                                <img src="assets/img/th-1/testimonial-img-6.jpg" alt="testimonial-img" width="60"
-                                    height="60" class="h-full w-full object-cover object-center" />
-                            </div>
-                            <div class="flex flex-col gap-y-1">
-                                <span class="block text-lg font-semibold leading-[1.6]">
-                                    Henry Ochi
-                                </span>
-                                <span class="block text-sm font-light leading-[1.4]">
-                                    Bank Manager
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Item -->
+                    <!-- Content Right Block -->
                 </div>
-                <!-- Testimonial List -->
             </div>
             <!-- Section Container -->
         </div>
         <!-- Section Spacer -->
     </section>
-    <!--...::: Testimonial Section Start :::... -->
+    <!--...::: About Contact Section End :::... -->
+    {{-- </main> --}}
+
+
 
     <!-- Body Background Shape 1 -->
     <div

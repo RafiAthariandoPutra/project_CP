@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('position');
+            $table->string('slug');
             $table->text('bio')->nullable();
             $table->string('image')->nullable();
             $table->softDeletes();

@@ -1,4 +1,7 @@
 @extends('Admin.layouts')
+@section('title', 'Trusted Company')
+
+
 
 @section('dashboard')
     <div data-dialog-backdrop="sign-in-modal" data-dialog-backdrop-close="true"

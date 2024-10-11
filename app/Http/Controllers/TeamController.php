@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
@@ -37,6 +38,8 @@ class TeamController extends Controller
     {
         $data = $request->validated();
 
+
+        $data['slug'] = Str::slug($data['name']);
         $year = Carbon::now()->format('Y');
         $file = $request->file('image');
         $data['image'] = $file
@@ -56,6 +59,9 @@ class TeamController extends Controller
     public function show(Team $team)
     {
         //. return view('Admin.pages.team.show', compact('team'));
+        $team = Team::where('slug', $team->slug)->first();
+
+        return view('team.show', compact('team'));
     }
 
     /**

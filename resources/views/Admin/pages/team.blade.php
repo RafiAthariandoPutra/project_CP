@@ -1,4 +1,7 @@
 @extends('Admin.layouts')
+@section('title', 'Team')
+
+
 
 @section('dashboard')
     <div class="mt-9 mb-8 w-full flex flex-col gap-12 ">
@@ -47,30 +50,30 @@
                     <tbody>
                         @foreach ($teams as $data)
                             <tr>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3 w-36  px-5 border-b border-blue-gray-50">
                                     <div class="flex items-center gap-4">
                                         <img src="/storage/{{ $data->image }}" alt="{{ $data->name }}"
-                                            style="border-radius:50%" class="w-20 h-20  object-cover" />
+                                            class="w-20 h-20 rounded-full  object-cover" />
                                     </div>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $data->name }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $data->position }}
                                     </p>
                                 </td>
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
-                                    <p class="block antialiased font-sans text-xs font-semibold text-blue-gray-600">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
+                                    <p class=" antialiased font-sans text-xs font-semibold text-blue-gray-600">
                                         {{ $data->bio }}
                                     </p>
                                 </td>
 
 
-                                <td class="py-3 w-1/3 px-5 border-b border-blue-gray-50">
+                                <td class="py-3  px-5 border-b border-blue-gray-50">
                                     <form id="confirm" action="/dashboard/team/{{ $data->id }}" method="post">
                                         @method('delete')
                                         @csrf
