@@ -4,7 +4,7 @@
         <a class="py-6 px-8 text-center" href="#/">
             <h6
                 class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-blue-gray-900">
-                Material Tailwind React
+                Dashboard Company Profile
             </h6>
         </a><button
             class="align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden"

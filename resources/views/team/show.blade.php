@@ -65,53 +65,6 @@
                                         <h4 class="text-[21px] leading-[1.33]">
                                             {{ $team->position }}
                                         </h4>
-
-                                        <ul class="mt-auto flex gap-x-[15px]">
-                                            <li>
-                                                <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"
-                                                    class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
-                                                    <img src="assets/img/facebook-icon-white.svg" alt="facebook"
-                                                        width="14" height="14"
-                                                        class="opacity-100 group-hover:opacity-0" />
-                                                    <img src="assets/img/facebook-icon-black.svg" alt="facebook"
-                                                        width="14" height="14"
-                                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer"
-                                                    class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
-                                                    <img src="assets/img/twitter-icon-white.svg" alt="twitter"
-                                                        width="14" height="14"
-                                                        class="opacity-100 group-hover:opacity-0" />
-                                                    <img src="assets/img/twitter-icon-black.svg" alt="twitter"
-                                                        width="14" height="14"
-                                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer"
-                                                    class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
-                                                    <img src="assets/img/linkedin-icon-white.svg" alt="linkedin"
-                                                        width="14" height="14"
-                                                        class="opacity-100 group-hover:opacity-0" />
-                                                    <img src="assets/img/linkedin-icon-black.svg" alt="linkedin"
-                                                        width="14" height="14"
-                                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"
-                                                    class="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed">
-                                                    <img src="assets/img/instagram-icon-white.svg" alt="instagram"
-                                                        width="14" height="14"
-                                                        class="opacity-100 group-hover:opacity-0" />
-                                                    <img src="assets/img/instagram-icon-black.svg" alt="instagram"
-                                                        width="14" height="14"
-                                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100" />
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

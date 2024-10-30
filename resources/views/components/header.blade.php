@@ -46,10 +46,11 @@
 
             <!-- Header User Event -->
             <div class="flex items-center gap-6">
-                <a class='button hidden rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block'
+                <span></span>
+                {{-- <a class='opacity-0 button hidden rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block'
                     href='/login'>Login</a>
-                <a class='button hidden rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block'
-                    href='#contact'>Contact</a>
+                <a class='opacity-0 button hidden rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block'
+                    href='#contact'>Contact</a> --}}
                 <!-- Responsive Offcanvas Menu Button -->
                 <div class="block lg:hidden">
                     <button id="openBtn" class="hamburger-menu mobile-menu-trigger">

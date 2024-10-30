@@ -16,7 +16,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $team = Team::orderBy('created_at', 'desc')->get();
+        $team = Team::latest()->get();
 
         return view('Admin.pages.team', [
             'teams' => $team
@@ -59,7 +59,7 @@ class TeamController extends Controller
     public function show(Team $team)
     {
         //. return view('Admin.pages.team.show', compact('team'));
-        $team = Team::where('slug', $team->slug)->first();
+        // $team('slug', $team->slug)->first();
 
         return view('team.show', compact('team'));
     }

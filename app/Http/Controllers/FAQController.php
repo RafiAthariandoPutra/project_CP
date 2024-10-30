@@ -15,6 +15,7 @@ class FAQController extends Controller
     public function index()
     {
         $faqs = FAQ::orderBy('created_at', 'desc')->get();
+        dd($faqs);
 
         return view('Admin.pages.faq', compact('faqs'));
     }

@@ -87,71 +87,19 @@
                     <div class="flex flex-col gap-y-10 lg:gap-y-20">
                         <!-- Content Block -->
                         <div class="grid grid-cols-1 items-center gap-[30px] lg:grid-cols-2">
-                            <!-- Content Left Block -->
-                            <div class="jos order-2 overflow-hidden rounded-md lg:order-1" data-jos_animation="fade-right">
-                                <img src="assets/img/th-1/content-image-5.jpg" alt="content-image-6" width="636"
-                                    height="400" class="h-auto w-full" />
-                            </div>
-                            <!-- Content Left Block -->
                             <!-- Content Right Block -->
                             <div class="jos order-1 lg:order-2" data-jos_animation="fade-left">
                                 <!-- Section Content Block -->
                                 <div class="mb-4 xl:mb-6">
                                     <h2>Project overview</h2>
                                 </div>
-                                <!-- Section Content Block -->
-                                <span class="mb-8 block text-2xl font-bold leading-snug">
-                                    Machine Learning and Predictive Analytics:
-                                </span>
+
                                 <ul class="mb-7 flex flex-col gap-y-[30px] text-lg leading-[1.4] last:mb-0 lg:text-[21px]">
                                     <li
                                         class="relative pl-[30px] after:absolute after:left-[10px] after:top-3 after:h-[6px] after:w-[6px] after:rounded-[50%] after:bg-black">
-                                        Demand Forecasting: AI SaaS helps businesses predict
-                                        demand for products and services, optimizing inventory
-                                        management and supply chain operations.
+                                        {{ $project->description }}
                                     </li>
-                                    <li
-                                        class="relative pl-[30px] after:absolute after:left-[10px] after:top-3 after:h-[6px] after:w-[6px] after:rounded-[50%] after:bg-black">
-                                        Customer Churn Prediction: It's used to identify
-                                        customers at risk of leaving a service or product,
-                                        allowing proactive retention efforts.
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Content Right Block -->
-                        </div>
-                        <!-- Content Block -->
-                        <!-- Content Block -->
-                        <div class="grid grid-cols-1 items-center gap-[30px] lg:grid-cols-2">
-                            <!-- Content Left Block -->
-                            <div class="jos order-2 overflow-hidden rounded-md lg:order-2" data-jos_animation="fade-left">
-                                <img src="assets/img/th-1/content-image-6.jpg" alt="content-image-6" width="636"
-                                    height="400" class="h-auto w-full" />
-                            </div>
-                            <!-- Content Left Block -->
-                            <!-- Content Right Block -->
-                            <div class="jos order-1 lg:order-1" data-jos_animation="fade-right">
-                                <!-- Section Content Block -->
-                                <div class="mb-4 xl:mb-6">
-                                    <h2>Project results</h2>
-                                </div>
-                                <!-- Section Content Block -->
-                                <span class="mb-8 block text-2xl font-bold leading-snug">
-                                    Natural Language Processing (NLP):
-                                </span>
-                                <ul class="mb-7 flex flex-col gap-y-[30px] text-lg leading-[1.4] last:mb-0 lg:text-[21px]">
-                                    <li
-                                        class="relative pl-[30px] after:absolute after:left-[10px] after:top-3 after:h-[6px] after:w-[6px] after:rounded-[50%] after:bg-black">
-                                        Text Analysis: AI SaaS can be used to analyze text data
-                                        for sentiment analysis, entity recognition, language
-                                        translation, and text summarization.
-                                    </li>
-                                    <li
-                                        class="relative pl-[30px] after:absolute after:left-[10px] after:top-3 after:h-[6px] after:w-[6px] after:rounded-[50%] after:bg-black">
-                                        Chatbots and Virtual Assistants: Businesses use AI SaaS
-                                        to build chatbots and virtual assistants for customer
-                                        support, improving response times and efficiency.
-                                    </li>
+
                                 </ul>
                             </div>
                             <!-- Content Right Block -->
