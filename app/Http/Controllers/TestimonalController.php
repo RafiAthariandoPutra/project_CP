@@ -13,6 +13,11 @@ class TestimonalController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'checkRole:socalAdmin']);
+    }
+
     public function index()
     {
         $testimonal = Testimonal::orderBy('created_at', 'desc')->get();

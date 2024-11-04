@@ -29,12 +29,25 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return $this->redirectToBasedOnRole($request);
     }
 
-    /**
-     * Destroy an authenticated session.
-     */
+    protected function redirectToBasedOnRole (LoginRequest $request)
+    {
+        $user = Auth::user();
+
+        switch ($user->role) {
+            case 'socialAdmin':
+                return redirect()->route('dashboard.faq.index');
+            case 'projectAdmin':
+                return redirect()->route('dashboard.project.index');
+            case 'superAdmin':
+                return redirect()->route('dashboard.trustedcompany.index');
+            default:
+                return redirect()->route('home');
+        }
+    }
+
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
