@@ -25,27 +25,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return $this->redirectToBasedOnRole($request);
-    }
-
-    protected function redirectToBasedOnRole (LoginRequest $request)
-    {
-        $user = Auth::user();
-
-        switch ($user->role) {
-            case 'socialAdmin':
-                return redirect()->route('dashboard.faq.index');
-            case 'projectAdmin':
-                return redirect()->route('dashboard.project.index');
-            case 'superAdmin':
-                return redirect()->route('dashboard.trustedcompany.index');
-            default:
-                return redirect()->route('home');
-        }
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     public function destroy(Request $request): RedirectResponse

@@ -2,22 +2,16 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Gate;
 
-class StoreServiceRequest extends FormRequest
+class StoreContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        if (!Gate::allows('projectAction')) {
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
 
     /**
@@ -27,10 +21,6 @@ class StoreServiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'heading' => 'nullable|string',
-            'description' => 'nullable',
-            'icon' => 'nullable|image|file',
-        ];
+        return [];
     }
 }

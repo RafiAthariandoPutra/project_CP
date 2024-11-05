@@ -6,14 +6,22 @@ use App\Models\Hero;
 use App\Http\Requests\StoreHeroRequest;
 use App\Http\Requests\UpdateHeroRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
 
 class HeroController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
+        if (!Gate::any(['projectAction', 'superAction'])) {
+            abort(403);
+        }
+
         $hero = Hero::first();
 
         return view('Admin.pages.hero', compact('hero'));

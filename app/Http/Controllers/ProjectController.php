@@ -8,33 +8,24 @@ use App\Http\Requests\UpdateProjectRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Gate;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkRole:projectAdmin']);
-    }
 
     public function index()
     {
+        if (!Gate::any(['projectAction', 'superAction'])) {
+            abort(403);
+        }
+
         $project = Project::orderBy('created_at', 'desc')->get();
 
         return view('admin.pages.project', compact('project'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -67,21 +58,7 @@ class ProjectController extends Controller
         return view('project.show', compact('project'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Project $project)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateProjectRequest $request, Project $project)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

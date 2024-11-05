@@ -7,30 +7,23 @@ use App\Http\Requests\StoreTestimonalRequest;
 use App\Http\Requests\UpdateTestimonalRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use  Illuminate\Support\Facades\Gate;
 
 class TestimonalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkRole:socalAdmin']);
-    }
 
     public function index()
     {
+        if (!Gate::any(['socialAction', 'superAction'])) {
+            abort(403);
+        }
+
         $testimonal = Testimonal::orderBy('created_at', 'desc')->get();
 
         return view('Admin.pages.testimonal', compact('testimonal'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -54,29 +47,6 @@ class TestimonalController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Testimonal $testimonal)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Testimonal $testimonal)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateTestimonalRequest $request, Testimonal $testimonal)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

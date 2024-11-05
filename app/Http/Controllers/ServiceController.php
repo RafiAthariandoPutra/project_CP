@@ -7,29 +7,25 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
+
 
 class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkRole:projectAdmin']);
-    }
-
 
     public function index()
     {
+        if (!Gate::any(['projectAction', 'superAction'])) {
+            abort(403);
+        }
 
         $service = Service::orderBy('created_at', 'desc')->get();
         return view('admin.pages.service', compact('service'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -51,29 +47,6 @@ class ServiceController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateServiceRequest $request, Service $service)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

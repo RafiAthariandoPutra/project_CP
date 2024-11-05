@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
@@ -45,13 +47,12 @@ Route::get('/', function () {
     return view('home', compact('trustedCompanies', 'hero', 'testimonal', 'team', 'project', 'services', 'faqs'));
 });
 
+Route::post('/contact', [ContactController::class, 'store']);
+
 Route::get('/project/{project:slug}', [ProjectController::class, 'show']);
 Route::get('/team/{team:slug}', [TeamController::class, 'show']);
 
 
-Route::get('/dashboard', function () {
-    return view('Admin.pages.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -67,18 +68,24 @@ Route::get('/dashboard', function () {
 //     Route::resource('/dashboard/project', ProjectController::class)->except('show');
 // });
 
-Route::middleware(['auth', 'checkRole:socialAdmin', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get("/dashboard", [DashboardController::class, "index"])->name('dashboard');
+    // CETAK DATA COMPANY PROFILE MENJADI PDF
+    Route::get("/dashboard/cetak", [DashboardController::class, 'cetak'])->name('download.cetak');
+
+
+
     Route::resource('/dashboard/faq', FAQController::class)->except('show');
     Route::resource('/dashboard/testimonal', TestimonalController::class)->except('show');
 });
 
-Route::middleware(['auth', 'checkRole:projectAdmin', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard/project', ProjectController::class)->except('show');
     Route::resource('/dashboard/team', TeamController::class)->except('show');
     Route::resource('/dashboard/service', ServiceController::class)->except('show');
 });
 
-Route::middleware(['auth', 'checkRole:superAdmin', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard/trustedcompany', TrustedCompanyController::class)->except(['show']);
     Route::resource('/dashboard/herosection', HeroController::class)->except('show');
     Route::resource('/dashboard/team', TeamController::class)->except('show');
@@ -88,4 +95,8 @@ Route::middleware(['auth', 'checkRole:superAdmin', 'verified'])->group(function 
     Route::resource('/dashboard/faq', FAQController::class)->except('show');
 });
 
+
+// Route::get("/tes", function () {
+//     return view('Admin.cetak');
+// });
 require __DIR__ . '/auth.php';

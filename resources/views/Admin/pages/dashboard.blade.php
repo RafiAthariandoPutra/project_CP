@@ -119,6 +119,19 @@
                     d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
                     clip-rule="evenodd"></path>
             </svg></span></button>
+    <form method="GET" action="{{ route('download.cetak') }}"
+        class="flex select-none items-center gap-2 rounded bg-slate-800 py-2.5 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:shadow-lg hover:shadow-slate-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="submit">
+        <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                stroke-width="2" class="w-4 h-4">
+                <path
+                    d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                </path>
+            </svg>
+            Cetak Company Profile
+        </button>
+    </form>
     <div class="mt-12">
         <div class="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
             <div
@@ -163,9 +176,9 @@
                 <div class="p-4 text-right">
                     <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">
                         Today's Users</p>
-                    <h4
+                    {{-- <h4
                         class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-                        {{ Auth()->user()->count() }}</h4>
+                        {{ Auth()->user()->count() }}</h4> --}}
                 </div>
                 <div class="border-t border-blue-gray-50 p-4">
                     <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
@@ -725,11 +738,13 @@
                                             </line>
                                             <line id="SvgjsLine1466" x1="86.9973692893982" y1="0"
                                                 x2="86.9973692893982" y2="146.02963002967834" stroke="#dddddd"
-                                                stroke-dasharray="5" stroke-linecap="butt" class="apexcharts-gridline">
+                                                stroke-dasharray="5" stroke-linecap="butt"
+                                                class="apexcharts-gridline">
                                             </line>
                                             <line id="SvgjsLine1467" x1="115.99649238586426" y1="0"
                                                 x2="115.99649238586426" y2="146.02963002967834" stroke="#dddddd"
-                                                stroke-dasharray="5" stroke-linecap="butt" class="apexcharts-gridline">
+                                                stroke-dasharray="5" stroke-linecap="butt"
+                                                class="apexcharts-gridline">
                                             </line>
                                             <line id="SvgjsLine1468" x1="144.99561548233032" y1="0"
                                                 x2="144.99561548233032" y2="146.02963002967834" stroke="#dddddd"

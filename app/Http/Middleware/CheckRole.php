@@ -20,20 +20,6 @@ class CheckRole
             return $next($request);
         }
 
-        if (Auth::check()) {
-            switch (Auth::user()->role) {
-                case 'socialAdmin':
-                    return redirect()->route('dashboard.faq.index')->with('error', 'Akses ditolak.');
-                case 'projectAdmin':
-                    return redirect()->route('dashboard.project.index')->with('error', 'Akses ditolak.');
-                case 'superAdmin':
-                    return redirect()->route('dashboard')->with('error', 'Akses ditolak.');
-                default:
-                    Auth::logout();
-                    return redirect('/')->with('error', 'Akses ditolak.');
-            }
-        }
-
-        return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');
+        return response()->json(['You do not have permission to access for this page.']);
     }
 }

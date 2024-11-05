@@ -44,17 +44,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * Interact with the user's first name.
-     *
-     * @param  string  $value
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
-     */
-    protected function role(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => ["socialAdmin", "projectAdmin", "superAdmin"][$value],
-        );
-    }
 }

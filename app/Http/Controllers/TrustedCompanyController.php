@@ -7,6 +7,7 @@ use App\Http\Requests\TrustedCompanyRequest;
 use App\Models\TrustedCompany;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
@@ -18,6 +19,10 @@ class TrustedCompanyController extends Controller
 
     public function index()
     {
+        if (!Gate::any(['socialAction', 'superAction'])) {
+            abort(403);
+        }
+
         $trustedCompanies = TrustedCompany::orderBy('created_at', 'desc')->get();
         return view('Admin.pages.trustedcompany', compact('trustedCompanies'));
     }
