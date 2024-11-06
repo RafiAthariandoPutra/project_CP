@@ -19,9 +19,7 @@ class TrustedCompanyController extends Controller
 
     public function index()
     {
-        if (!Gate::any(['socialAction', 'superAction'])) {
-            abort(403);
-        }
+
 
         $trustedCompanies = TrustedCompany::orderBy('created_at', 'desc')->get();
         return view('Admin.pages.trustedcompany', compact('trustedCompanies'));

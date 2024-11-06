@@ -18,9 +18,8 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimonalController;
 use App\Http\Controllers\TrustedCompanyController;
-
-
-
+use App\Mail\SendMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,45 +46,38 @@ Route::get('/', function () {
     return view('home', compact('trustedCompanies', 'hero', 'testimonal', 'team', 'project', 'services', 'faqs'));
 });
 
-Route::post('/contact', [ContactController::class, 'store']);
+
+Route::get('/contact-send', function () {
+    $data = [
+        'name' => 'Zafar Syah',
+        'email' => 'zafarmanusia@gmai.com',
+        'message' => 'Halo, dari zafar syah',
+    ];
+
+
+    Mail::to('dhafinharon40@gmail.com')->send(new SendMail($data));
+
+    dd('Email Sent');
+});
 
 Route::get('/project/{project:slug}', [ProjectController::class, 'show']);
 Route::get('/team/{team:slug}', [TeamController::class, 'show']);
 
-
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-//     Route::resource('/dashboard/trustedcompany', TrustedCompanyController::class)->except(['show']);
-//     Route::resource('/dashboard/service', ServiceController::class)->except('show');
-//     Route::resource('/dashboard/herosection', HeroController::class)->except('show');
-//     Route::resource('/dashboard/team', TeamController::class)->except('show');
-//     Route::resource('/dashboard/testimonal', TestimonalController::class)->except('show');
-//     Route::resource('/dashboard/faq', FAQController::class)->except('show');
-//     Route::resource('/dashboard/project', ProjectController::class)->except('show');
-// });
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name('dashboard');
     // CETAK DATA COMPANY PROFILE MENJADI PDF
     Route::get("/dashboard/cetak", [DashboardController::class, 'cetak'])->name('download.cetak');
 
-
-
-    Route::resource('/dashboard/faq', FAQController::class)->except('show');
-    Route::resource('/dashboard/testimonal', TestimonalController::class)->except('show');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'projectAdmin'])->group(function () {
     Route::resource('/dashboard/project', ProjectController::class)->except('show');
     Route::resource('/dashboard/team', TeamController::class)->except('show');
     Route::resource('/dashboard/service', ServiceController::class)->except('show');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'socialAdmin'])->group(function () {
     Route::resource('/dashboard/trustedcompany', TrustedCompanyController::class)->except(['show']);
     Route::resource('/dashboard/herosection', HeroController::class)->except('show');
     Route::resource('/dashboard/team', TeamController::class)->except('show');

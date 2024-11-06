@@ -20,9 +20,7 @@ class TeamController extends Controller
 
     public function index()
     {
-        if (!Gate::any(['projectAction', 'superAction'])) {
-            abort(403);
-        }
+
 
         $team = Team::latest()->get();
 
