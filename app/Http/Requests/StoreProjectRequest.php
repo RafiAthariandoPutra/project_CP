@@ -12,7 +12,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        if (!Gate::allows('projectAction')) {
+        if (!Gate::any(['projectAdmin', 'superAdmin'])) {
             return false;
         } else {
             return true;

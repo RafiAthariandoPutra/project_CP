@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProjectAdmin
+class superAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class ProjectAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Gate::any(['projectAdmin', 'superAdmin'])) {
+        if (!Gate::allows(['superAdmin'])) {
             abort(403);
         }
         return $next($request);

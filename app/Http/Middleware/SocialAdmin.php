@@ -16,7 +16,7 @@ class SocialAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Gate::any(['socialAction', 'superAction'])) {
+        if (!Gate::any(['socialAdmin', 'superAdmin'])) {
             abort(403);
         }
         return $next($request);

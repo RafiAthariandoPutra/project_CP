@@ -11,17 +11,9 @@
         <div class="p-4 sm:p-7">
           <div class="text-center">
             <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
-            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-              Don't have an account yet?
-              <a class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500" href="../examples/html/signup.html">
-                Sign up here
-              </a>
-            </p>
           </div>
 
           <div class="mt-5">
-            <div class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">Or</div>
-
             <!-- Form -->
             <form method="POST" action="{{ route('login') }}" class="space-y-6">
               @csrf
@@ -45,7 +37,6 @@
                 <div>
                   <div class="flex justify-between items-center">
                     <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
-                    <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500" href="../examples/html/recover-account.html">Forgot password?</a>
                   </div>
                   <div class="relative">
                     <input type="password" id="password" name="password" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" required aria-describedby="password-error">

@@ -18,9 +18,7 @@ class HeroController extends Controller
     public function index()
     {
 
-        if (!Gate::any(['projectAction', 'superAction'])) {
-            abort(403);
-        }
+
 
         $hero = Hero::first();
 

@@ -13,7 +13,7 @@ class StoreServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        if (!Gate::allows('projectAction')) {
+        if (!Gate::any(['projectAdmin', 'superAdmin'])) {
             return false;
         } else {
             return true;
@@ -30,7 +30,6 @@ class StoreServiceRequest extends FormRequest
         return [
             'heading' => 'nullable|string',
             'description' => 'nullable',
-            'icon' => 'nullable|image|file',
         ];
     }
 }

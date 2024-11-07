@@ -12,7 +12,7 @@ class StoreTeamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        if (!Gate::allows('projectAction' || 'superAction')) {
+        if (!Gate::any(['projectAdmin', 'superAdmin'])) {
             return false;
         } else {
             return true;

@@ -2,17 +2,19 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rules;
 
-class StoreTrustedCompanyRequest extends FormRequest
+class StoreServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        if (!Gate::any(['socialAdmin', 'superAdmin'])) {
+        if (!Gate::allows(['superAdmin'])) {
             return false;
         } else {
             return true;
@@ -27,9 +29,10 @@ class StoreTrustedCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_name' => 'required',
-            'industry' => 'nullable',
-            'company_logo' => 'nullable|image|file',
+            'name'=> 'required|string',
+            'email'=> 'required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class,
+            'password'=> 'required', Rules\Password::defaults(),
+            'role'=> 'required|string',
         ];
     }
 }

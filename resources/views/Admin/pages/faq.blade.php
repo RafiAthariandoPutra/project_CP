@@ -180,6 +180,6 @@
     </div>
 
     @push('script')
-        <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script>
+        <script src={{asset('assets/js/modal.js')}}></script>
     @endpush
 @endsection

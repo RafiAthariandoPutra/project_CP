@@ -17,9 +17,7 @@ class TestimonalController extends Controller
 
     public function index()
     {
-        if (!Gate::any(['socialAction', 'superAction'])) {
-            abort(403);
-        }
+
 
         $testimonal = Testimonal::orderBy('created_at', 'desc')->get();
 

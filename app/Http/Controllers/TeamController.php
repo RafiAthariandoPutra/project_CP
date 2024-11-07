@@ -21,7 +21,6 @@ class TeamController extends Controller
     public function index()
     {
 
-
         $team = Team::latest()->get();
 
         return view('Admin.pages.team', [
@@ -57,9 +56,6 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //. return view('Admin.pages.team.show', compact('team'));
-        // $team('slug', $team->slug)->first();
-
         return view('team.show', compact('team'));
     }
 

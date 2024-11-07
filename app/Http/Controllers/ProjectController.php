@@ -18,9 +18,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        if (!Gate::any(['projectAction', 'superAction'])) {
-            abort(403);
-        }
+
 
         $project = Project::orderBy('created_at', 'desc')->get();
 

@@ -12,7 +12,7 @@ class StoreTestimonalRequest extends FormRequest
      */
     public function authorize()
     {
-        if (!Gate::allows('socialAction' || 'superAction')) {
+        if (!Gate::any(['socialAdmin', 'superAdmin'])) {
             return false;
         } else {
             return true;
