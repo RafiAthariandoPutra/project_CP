@@ -21,6 +21,10 @@ class StoreContactRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [];
+        return [
+            'name' => 'nullable|min:3',
+            'email' => 'nullable',
+            'address' => 'nullable'
+        ];
     }
 }

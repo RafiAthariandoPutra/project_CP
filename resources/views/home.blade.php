@@ -477,10 +477,10 @@
                     </div>
                     <!-- Content Left Block -->
                     <!-- Content Right Block -->
-                    <div class="jos order-1 md:order-2" data-jos_animation="fade-down">
+                    <div class="jos order-1 md:order-2  " data-jos_animation="fade-down">
                         <!-- Section Content Block -->
                         <div class="mb-6 md:max-w-max">
-                            <h2 class="text-white">
+                            <h2 class="text-white hover:text-colorOrangyRed">
                                 We always want to connect our clients
                             </h2>
                         </div>
@@ -493,27 +493,117 @@
                             </p>
                         </div>
 
-                        <ul
-                            class="mt-10 flex flex-col gap-6 font-dmSans text-[30px] tracking-[1.33] lg:mt-14 lg:gap-y-3 xl:mt-[70px]">
-                            <li
-                                class="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
-                                Website:
-                                <a href="https://www.example.com"
-                                    class="text-white hover:text-colorOrangyRed">www.example.com</a>
-                            </li>
-                            <li
-                                class="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
-                                Email:
-                                <a href="mailto:yourmail@mail.com"
-                                    class="text-white hover:text-colorOrangyRed">yourmail@mail.com</a>
-                            </li>
-                            <li
-                                class="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
-                                Phone:
-                                <a href="tel:+1234567890" class="text-white hover:text-colorOrangyRed">(123)
-                                    456-7890</a>
-                            </li>
-                        </ul>
+                        <button id="button-contact" data-dialog-target="sign-in-modal"
+                            class="rounded-md bg-blue-800 mt-12 py-2 px-4 border border-transparent text-center text-lg text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+                            type="button">
+                            Contact Form
+                        </button>
+
+
+                        {{-- Modal --}}
+
+                        <div data-dialog-backdrop="sign-in-modal" data-dialog-backdrop-close="true"
+                            data-popover-transition="transition-all duration-300"
+                            class="pointer-events-none fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300">
+                            <div data-dialog="sign-in-modal" data-dialog-mount="opacity-100 translate-y-0 scale-100"
+                                data-dialog-unmount="opacity-0 -translate-y-28 scale-90 pointer-events-none"
+                                data-dialog-transition="transition-all duration-300"
+                                class="relative mx-auto  max-w-screen-sm rounded-lg overflow-hidden shadow-sm">
+                                <div class="relative flex flex-col bg-white">
+                                    <div
+                                        class="relative m-2.5 items-center flex justify-center text-white py-5 rounded-md">
+                                        <h3 id="judul-contact" class="text-2xl text-gray-900">
+                                            Contact Send
+                                        </h3>
+                                    </div>
+                                    <form class="w-full" action="/contact-send" method="post">
+                                        @csrf
+                                        <div class="flex w-full flex-col -mt-5 gap-4 p-4">
+                                            <div class="flex w-full flex-col md:flex-row gap-4 ">
+
+                                                <div class="w-full ">
+                                                    <label class="block mb-2 text-sm text-slate-600">
+                                                        Name
+                                                    </label>
+                                                    <input type="text" name="name"
+                                                        class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                                        placeholder="eg. eeeefmelfmel" />
+                                                    @error('name')
+                                                        <p class="text-red-500 text-xs mt-1">
+                                                            {{ $massage }}
+                                                        </p>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="w-full ">
+                                                    <label class="block mb-2 text-sm text-slate-600">
+                                                        Company Name
+                                                    </label>
+                                                    <input type="text" name="company_name"
+                                                        class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                                        placeholder="eg. eeeefmelfmel" />
+                                                    @error('company_name')
+                                                        <p class="text-red-500 text-xs mt-1">
+                                                            {{ $massage }}
+                                                        </p>
+                                                    @enderror
+                                                </div>
+
+
+                                            </div>
+                                            <div class="flex w-full flex-col md:flex-row gap-4 ">
+
+                                                <div class="w-full ">
+                                                    <label class="block mb-2 text-sm text-slate-600">
+                                                        Phone Number
+                                                    </label>
+                                                    <input type="tel" name="phone_number"
+                                                        class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                                        placeholder="eg. eeeefmelfmel" />
+                                                    @error('phone_number')
+                                                        <p class="text-red-500 text-xs mt-1">
+                                                            {{ $massage }}
+                                                        </p>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="w-full">
+                                                    <label class="block mb-2 text-sm text-slate-600">
+                                                        Email
+                                                    </label>
+                                                    <input type="email" name="email"
+                                                        class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                                        placeholder="eg. Software" />
+                                                    @error('email')
+                                                        <p class="text-red-500 text-xs mt-1">
+                                                            {{ $massage }}
+                                                        </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="w-full">
+                                                <textarea
+                                                    class="py-3 px-0 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-sm focus:border-blue-500 focus:border-t-transparent focus:border-x-transparent focus:border-b-blue-500 focus:ring-0 disabled:opacity-50 disabled:pointer-events-none dark:border-b-neutral-700 dark:text-neutral-900 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 dark:focus:border-b-neutral-600"
+                                                    rows="3" placeholder="Message..."></textarea>
+                                                @error('message')
+                                                    <p class="text-red-500 text-xs mt-1">
+                                                        {{ $massage }}
+                                                    </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="p-6 pt-0">
+                                            <button id="contact-send" type="submit"
+                                                class="w-full text-white py-3 px-4 inline-flex justify-center items-center gap-x-2 text-lg font-medium rounded-lg border border-transparent transition disabled:opacity-50 disabled:pointer-events-none">
+                                                Send
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- Content Right Block -->
                 </div>

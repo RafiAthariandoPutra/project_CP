@@ -16,9 +16,7 @@ class FAQController extends Controller
 
     public function index()
     {
-        if (!Gate::any(['socialAction', 'superAction'])) {
-            abort(403);
-        }
+        
 
         $faqs = FAQ::orderBy('created_at', 'desc')->get();
 

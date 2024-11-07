@@ -11,11 +11,11 @@ class ContactUs extends Notification
 {
     use Queueable;
 
+    public $data;
     /**
      * Create a new notification instance.
      */
 
-    protected $data;
     public function __construct($data)
     {
         $this->data = $data;
@@ -37,13 +37,15 @@ class ContactUs extends Notification
     public function toMail(object $notifiable): MailMessage
     {
 
-        $url = url('/contact');
+
         return (new MailMessage)
-            ->line('Pengirim : ' . $this->data['name'])
+            ->subject('Contact Send')
+            ->line('Halo Codenest saya ' . $this->data['name'])
+            ->line('Dan saya dari perusahaan : ' . $this->data['company_name'])
             ->line('Email : ' . $this->data['email'])
-            ->line('Pesan : ' . $this->data['message'])
-            ->action('Notification Action', $url)
-            ->line('Thank you for using our application!');
+            ->line('Phone Number : ' . $this->data['phone_number'])
+            ->line('Message : ' . $this->data['message'])
+            ->line('Terimakasih atas perhatianya!');
     }
 
     /**

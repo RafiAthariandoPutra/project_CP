@@ -18,9 +18,7 @@ class ServiceController extends Controller
 
     public function index()
     {
-        if (!Gate::any(['projectAction', 'superAction'])) {
-            abort(403);
-        }
+        
 
         $service = Service::orderBy('created_at', 'desc')->get();
         return view('admin.pages.service', compact('service'));
