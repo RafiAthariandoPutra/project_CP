@@ -516,9 +516,11 @@
                                             Contact Send
                                         </h3>
                                     </div>
-                                    <form class="w-full" action="/contact-send" method="post">
+
+                                    <form action="/contact-send" method="post">
                                         @csrf
                                         <div class="flex w-full flex-col -mt-5 gap-4 p-4">
+
                                             <div class="flex w-full flex-col md:flex-row gap-4 ">
 
                                                 <div class="w-full ">
@@ -528,11 +530,7 @@
                                                     <input type="text" name="name"
                                                         class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                                         placeholder="eg. eeeefmelfmel" />
-                                                    @error('name')
-                                                        <p class="text-red-500 text-xs mt-1">
-                                                            {{ $massage }}
-                                                        </p>
-                                                    @enderror
+
                                                 </div>
 
                                                 <div class="w-full ">
@@ -542,11 +540,7 @@
                                                     <input type="text" name="company_name"
                                                         class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                                         placeholder="eg. eeeefmelfmel" />
-                                                    @error('company_name')
-                                                        <p class="text-red-500 text-xs mt-1">
-                                                            {{ $massage }}
-                                                        </p>
-                                                    @enderror
+
                                                 </div>
 
 
@@ -557,14 +551,10 @@
                                                     <label class="block mb-2 text-sm text-slate-600">
                                                         Phone Number
                                                     </label>
-                                                    <input type="tel" name="phone_number"
+                                                    <input type="number" name="phone_number"
                                                         class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                                         placeholder="eg. eeeefmelfmel" />
-                                                    @error('phone_number')
-                                                        <p class="text-red-500 text-xs mt-1">
-                                                            {{ $massage }}
-                                                        </p>
-                                                    @enderror
+
                                                 </div>
 
                                                 <div class="w-full">
@@ -574,22 +564,14 @@
                                                     <input type="email" name="email"
                                                         class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                                         placeholder="eg. Software" />
-                                                    @error('email')
-                                                        <p class="text-red-500 text-xs mt-1">
-                                                            {{ $massage }}
-                                                        </p>
-                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="w-full">
-                                                <textarea
+                                                <textarea name="message"
                                                     class="py-3 px-0 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-sm focus:border-blue-500 focus:border-t-transparent focus:border-x-transparent focus:border-b-blue-500 focus:ring-0 disabled:opacity-50 disabled:pointer-events-none dark:border-b-neutral-700 dark:text-neutral-900 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 dark:focus:border-b-neutral-600"
                                                     rows="3" placeholder="Message..."></textarea>
-                                                @error('message')
-                                                    <p class="text-red-500 text-xs mt-1">
-                                                        {{ $massage }}
-                                                    </p>
-                                                @enderror
+
                                             </div>
                                         </div>
 
