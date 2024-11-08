@@ -77,12 +77,6 @@ Route::middleware(['auth', 'verified', 'socialAdmin'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'superAdmin'])->group(function () {
     Route::resource('/dashboard/settings', SettingController::class)->except('show');
-    Route::resource('/dashboard/trustedcompany', TrustedCompanyController::class)->except(['show']);
-    Route::resource('/dashboard/herosection', HeroController::class)->except('show');
-    Route::resource('/dashboard/testimonal', TestimonalController::class)->except('show');
-    Route::resource('/dashboard/faq', FAQController::class)->except('show');
-    Route::resource('/dashboard/project', ProjectController::class)->except('show');
-    Route::resource('/dashboard/team', TeamController::class)->except('show');
     Route::resource('/dashboard/service', ServiceController::class)->except('show');
 });
 

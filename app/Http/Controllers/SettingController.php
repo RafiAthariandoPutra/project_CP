@@ -15,7 +15,7 @@ class SettingController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->where('role', '!=', 'superAdmin')->get();
+        $users = User::latest()->get();
 
 
         return view('Admin.pages.settings', compact('users'));
