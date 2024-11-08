@@ -18,21 +18,21 @@ class CreateUsersSeeder extends Seeder
             [
                 'name' => 'social Admin',
                 'email' => 'admin@socialgmail.com',
-                'Role' => 'socialAdmin',
+                'role' => 'socialAdmin',
                 'password' => bcrypt('password'),
             ],
 
             [
                 'name' => 'project Admin',
                 'email' => 'admin@projectgmail.com',
-                'Role' => 'projectAdmin',
+                'role' => 'projectAdmin',
                 'password' => bcrypt('password'),
             ],
 
             [
                 'name' => 'super Admin',
                 'email' => 'admin@supergmail.com',
-                'Role' => 'superAdmin',
+                'role' => 'superAdmin',
                 'password' => bcrypt('password'),
             ],
         ];

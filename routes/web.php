@@ -48,18 +48,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/contact-send', function () {
-    $data = [
-        'name' => 'Zafar Syah',
-        'email' => 'zafarmanusia@gmai.com',
-        'message' => 'Halo, dari zafar syah',
-    ];
-
-
-    Mail::to('dhafinharon40@gmail.com')->send(new SendMail($data));
-
-    dd('Email Sent');
-});
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact-send', [ContactController::class, 'store']);
 
 Route::get('/project/{project:slug}', [ProjectController::class, 'show']);
 Route::get('/team/{team:slug}', [TeamController::class, 'show']);
@@ -69,7 +59,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name('dashboard');
     // CETAK DATA COMPANY PROFILE MENJADI PDF
     Route::get("/dashboard/cetak", [DashboardController::class, 'cetak'])->name('download.cetak');
-
 });
 
 Route::middleware(['auth', 'verified', 'projectAdmin'])->group(function () {

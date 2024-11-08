@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactRequest;
 use App\Models\Contact;
+use App\Notifications\ContactUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class ContactController extends Controller
 {
@@ -12,7 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('emails.contact');
     }
 
     /**
@@ -26,7 +29,12 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {}
+    public function store(StoreContactRequest $request)
+    {
+        $data = $request->validated();
+
+        Notification::route('mail', 'dhafinharon40@gmail')->notify(new ContactUs($data));
+    }
 
     /**
      * Display the specified resource.

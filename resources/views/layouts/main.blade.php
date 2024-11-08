@@ -17,11 +17,14 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendors/jos.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/vendors/menu.css') }}" />
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
 
     <!-- Development css -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+
 
     <!-- Production css -->
     <!-- <link rel="stylesheet" href="assets/css/style.min.css"> -->
@@ -42,6 +45,9 @@
         <!--...::: Footer Section End :::... -->
     </div>
 
+
+
+
     <!--Vendor js-->
     <script src="{{ asset('assets/js/vendors/counterup.js') }}"></script>
     <script src="{{ asset('assets/js/vendors/swiper-bundle.min.js') }}"></script>
@@ -51,6 +57,8 @@
 
     <!-- Main js -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    {{-- Modal --}}
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script>
 </body>
 
 </html>
