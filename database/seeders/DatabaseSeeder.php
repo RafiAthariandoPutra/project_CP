@@ -22,11 +22,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-            'name' => 'Admin',
-            'email' => 'tes@gmail.com',
-            'password' => bcrypt('12345678'),
-        ]);
 
         Hero::create([
             'title' => 'Hero Section',

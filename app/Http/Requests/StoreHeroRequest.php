@@ -13,10 +13,12 @@ class StoreHeroRequest extends FormRequest
     public function authorize()
     {
         if (!Gate::any(['socialAdmin', 'superAdmin'])) {
-            abort(403);
-
+            return false;
+        } else {
+            return true;
+        }
     }
-}
+
 
     /**
      * Get the validation rules that apply to the request.
