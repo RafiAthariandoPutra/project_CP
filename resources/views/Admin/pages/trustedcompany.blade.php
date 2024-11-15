@@ -120,6 +120,7 @@
                             </th>
                             <th class="border-b border-blue-gray-50 py-3 px-5 text-left">
                                 <p class="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">
+                                    Action
                                 </p>
                             </th>
                         </tr>

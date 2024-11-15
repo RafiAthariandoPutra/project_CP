@@ -8,6 +8,7 @@
     <title>Admin | @yield('title')</title>
     @vite('resources/css/app.css')
 
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
     <script async src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 
 

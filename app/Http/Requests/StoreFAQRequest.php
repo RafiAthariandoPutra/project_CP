@@ -12,8 +12,10 @@ class StoreFAQRequest extends FormRequest
      */
     public function authorize()
     {
-        if (!Gate::allows('socialAction' || 'superAction')) {
-            abort(403);
+        if (!Gate::any(['socialAdmin', 'superAdmin'])) {
+            return false;
+        } else {
+            return true;
         }
     }
 

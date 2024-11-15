@@ -24,7 +24,10 @@ class StoreContactRequest extends FormRequest
         return [
             'name' => 'nullable|min:3',
             'email' => 'nullable',
-            'address' => 'nullable'
+            'company_name' => 'nullable',
+            'phone_number' => 'nullable',
+            'message' => 'nullable',
+
         ];
     }
 }

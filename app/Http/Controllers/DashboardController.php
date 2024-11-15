@@ -22,8 +22,12 @@ class DashboardController extends Controller
     public function index()
     {
 
-        return view('Admin.pages.dashboard');
-    }
+        $nama = auth()->user()->name;
+        toast(`Halo $nama`) ;
+        toast(`Halo $nama`, 'success');
+        return view('Admin.pages.dashboard')->with(`Halo $nama`);
+
+      }
 
     public function cetak()
     {

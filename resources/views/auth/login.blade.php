@@ -7,21 +7,13 @@
 
 
 
-    <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
+    {{-- <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
         <div class="p-4 sm:p-7">
           <div class="text-center">
             <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
-            <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-              Don't have an account yet?
-              <a class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500" href="../examples/html/signup.html">
-                Sign up here
-              </a>
-            </p>
           </div>
 
           <div class="mt-5">
-            <div class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">Or</div>
-
             <!-- Form -->
             <form method="POST" action="{{ route('login') }}" class="space-y-6">
               @csrf
@@ -45,7 +37,6 @@
                 <div>
                   <div class="flex justify-between items-center">
                     <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
-                    <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500" href="../examples/html/recover-account.html">Forgot password?</a>
                   </div>
                   <div class="relative">
                     <input type="password" id="password" name="password" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" required aria-describedby="password-error">
@@ -86,7 +77,69 @@
             <!-- End Form -->
           </div>
         </div>
-      </div>
+      </div> --}}
+
+    <div class="bg-white dark:bg-gray-900">
+        <div class="flex justify-center h-screen">
+            <div class="hidden bg-cover lg:block lg:w-2/3"
+                style="background-image: url(https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
+                <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white sm:text-3xl">CodeNest</h2>
+
+                        <p class="max-w-xl mt-3 text-gray-300">
+                            Welcome to our login page, here
+                            you can login with your created
+                            account.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
+                <div class="flex-1">
+                    <div class="text-center">
+
+                        <p class="mt-3 text-gray-500 dark:text-gray-300">Sign in to access dashboard</p>
+                    </div>
+
+                    <div class="mt-8">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div>
+                                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email
+                                    Address</label>
+                                <input type="email" name="email" id="email" placeholder="example@example.com"
+                                    class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="flex justify-between mb-2">
+                                    <label for="password"
+                                        class="text-sm text-gray-600 dark:text-gray-200">Password</label>
+                                    <a href="#"
+                                        class="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot
+                                        password?</a>
+                                </div>
+
+                                <input type="password" name="password" id="password" placeholder="Your Password"
+                                    class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+
+                            <div class="mt-6">
+                                <button type="submit"
+                                    class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                                    Sign in
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -16,6 +16,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonalController;
 use App\Http\Controllers\TrustedCompanyController;
 use App\Mail\SendMail;
@@ -71,15 +72,17 @@ Route::middleware(['auth', 'verified', 'projectAdmin'])->group(function () {
 Route::middleware(['auth', 'verified', 'socialAdmin'])->group(function () {
     Route::resource('/dashboard/trustedcompany', TrustedCompanyController::class)->except(['show']);
     Route::resource('/dashboard/herosection', HeroController::class)->except('show');
-    Route::resource('/dashboard/team', TeamController::class)->except('show');
-    Route::resource('/dashboard/service', ServiceController::class)->except('show');
     Route::resource('/dashboard/testimonal', TestimonalController::class)->except('show');
-    Route::resource('/dashboard/project', ProjectController::class)->except('show');
     Route::resource('/dashboard/faq', FAQController::class)->except('show');
 });
 
 
-// Route::get("/tes", function () {
-//     return view('Admin.cetak');
-// });
+Route::middleware(['auth', 'verified', 'superAdmin'])->group(function () {
+    Route::resource('/dashboard/settings', SettingController::class)->except('show');
+    Route::resource('/dashboard/service', ServiceController::class)->except('show');
+});
+
+
+
+
 require __DIR__ . '/auth.php';

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Hero;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,5 +14,5 @@ class HeroSeeder extends Seeder
     public function run(): void
     {
         //
-    }
+}
 }

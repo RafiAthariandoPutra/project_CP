@@ -18,7 +18,7 @@ class ServiceController extends Controller
 
     public function index()
     {
-        
+
 
         $service = Service::orderBy('created_at', 'desc')->get();
         return view('admin.pages.service', compact('service'));
@@ -53,13 +53,6 @@ class ServiceController extends Controller
     {
 
         $id = Service::find($id);
-
-
-        // dd($id);
-
-        if ($id->icon) {
-            Storage::disk('public')->delete($id->icon);
-        }
 
         $id->delete();
         toast('Service delete successfully', 'success');

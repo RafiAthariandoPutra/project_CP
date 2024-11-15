@@ -39,7 +39,7 @@
                     </button>
                 </a>
             </li>
-            @canany(['socialAction', 'superAction'])
+            @canany(['socialAdmin', 'superAdmin'])
                 <li>
                     <a class="" href="/dashboard/trustedcompany"><button data-ripple-light="true"
                             class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg {{ Request::is('dashboard/trustedcompany') ? 'bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85]' : 'text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30' }}  w-full flex items-center gap-4 px-4 capitalize"
@@ -90,10 +90,26 @@
                             </p>
                         </button></a>
                 </li>
+                <li>
+                    <a class="" href="/dashboard/herosection"><button data-ripple-light="true"
+                            class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg {{ Request::is('dashboard/herosection') ? 'bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85]' : 'text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30' }} w-full flex items-center gap-4 px-4 capitalize"
+                            type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"
+                                class="w-5 h-5 text-inherit"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0zM512 64l0 288L64 352 64 64l448 0z" />
+                            </svg>
+                            <p
+                                class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
+                                Hero Section
+                            </p>
+                        </button></a>
+                </li>
             @endcan
 
 
-            @canany(['projectAction', 'superAction'])
+            @canany(['projectAdmin', 'superAdmin'])
                 <li>
                     <a class="" href="/dashboard/team"><button data-ripple-light="true"
                             class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg {{ Request::is('dashboard/team') ? 'bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85]' : 'text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30' }}  w-full flex items-center gap-4 px-4 capitalize"
@@ -126,23 +142,34 @@
                             </p>
                         </button></a>
                 </li>
-
                 <li>
-                    <a class="" href="/dashboard/herosection"><button data-ripple-light="true"
-                            class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg {{ Request::is('dashboard/herosection') ? 'bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85]' : 'text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30' }} w-full flex items-center gap-4 px-4 capitalize"
+                    <a class="" href="/dashboard/service"><button data-ripple-light="true"
+                            class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg {{ Request::is('dashboard/service') ? 'bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85]' : 'text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30' }}  w-full flex items-center gap-4 px-4 capitalize"
                             type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true"
-                                class="w-5 h-5 text-inherit"
-                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                <path
-                                    d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0zM512 64l0 288L64 352 64 64l448 0z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-platter"><path d="M12 3V2"/><path d="M5 10a7.1 7.1 0 0 1 14 0"/><path d="M4 10h16"/><path d="M2 14h12a2 2 0 1 1 0 4h-2"/><path d="m15.4 17.4 3.2-2.8a2 2 0 0 1 2.8 2.9l-3.6 3.3c-.7.8-1.7 1.2-2.8 1.2h-4c-1.1 0-2.1-.4-2.8-1.2L5 18"/><path d="M5 14v7H2"/></svg>
+
                             <p
                                 class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
-                                Hero Section
+                                Services
                             </p>
                         </button></a>
                 </li>
+
+
+            @endcan
+
+            @can('superAdmin')
+            <li>
+                <a class="" href="/dashboard/settings"><button data-ripple-light="true"
+                        class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg {{ Request::is('dashboard/settings') ? 'bg-gradient-to-tr from-gray-900 to-gray-800 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85]' : 'text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30' }} w-full flex items-center gap-4 px-4 capitalize"
+                        type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-cog"><circle cx="18" cy="15" r="3"/><circle cx="9" cy="7" r="4"/><path d="M10 15H6a4 4 0 0 0-4 4v2"/><path d="m21.7 16.4-.9-.3"/><path d="m15.2 13.9-.9-.3"/><path d="m16.6 18.7.3-.9"/><path d="m19.1 12.2.3-.9"/><path d="m19.6 18.7-.4-1"/><path d="m16.8 12.3-.4-1"/><path d="m14.3 16.6 1-.4"/><path d="m20.7 13.8 1-.4"/></svg>
+                        <p
+                            class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
+                           Change Role
+                        </p>
+                    </button></a>
+            </li>
             @endcan
 
 
@@ -155,39 +182,17 @@
                 </p>
             </li>
             <li>
-                <a class="" href="#/auth/sign-in"><button
-                        class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 w-full flex items-center gap-4 px-4 capitalize"
-                        type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                            aria-hidden="true" class="w-5 h-5 text-inherit">
-                            <path
-                                d="M5.507 4.048A3 3 0 017.785 3h8.43a3 3 0 012.278 1.048l1.722 2.008A4.533 4.533 0 0019.5 6h-15c-.243 0-.482.02-.715.056l1.722-2.008z">
-                            </path>
-                            <path fill-rule="evenodd"
-                                d="M1.5 10.5a3 3 0 013-3h15a3 3 0 110 6h-15a3 3 0 01-3-3zm15 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm2.25.75a.75.75 0 100-1.5.75.75 0 000 1.5zM4.5 15a3 3 0 100 6h15a3 3 0 100-6h-15zm11.25 3.75a.75.75 0 100-1.5.75.75 0 000 1.5zM19.5 18a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <p
-                            class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
-                            sign in
-                        </p>
-                    </button></a>
-            </li>
-            <li>
-                <form method="GET" action="{{ route('logout') }}" class=""><button
-                        class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 w-full flex items-center gap-4 px-4 capitalize"
+                <form method="GET" action="{{ route('logout') }}" class="">
+                    <button
+                        class="align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg bg-red-600 text-white w-full flex items-center gap-4 px-4 capitalize"
                         type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                            aria-hidden="true" class="w-5 h-5 text-inherit">
-                            <path
-                                d="M5.566 4.657A4.505 4.505 0 016.75 4.5h10.5c.41 0 .806.055 1.183.157A3 3 0 0015.75 3h-7.5a3 3 0 00-2.684 1.657zM2.25 12a3 3 0 013-3h13.5a3 3 0 013 3v6a3 3 0 01-3 3H5.25a3 3 0 01-3-3v-6zM5.25 7.5c-.41 0-.806.055-1.184.157A3 3 0 016.75 6h10.5a3 3 0 012.683 1.657A4.505 4.505 0 0018.75 7.5H5.25z">
-                            </path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
                         <p
                             class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
                             Logout
                         </p>
-                    </button></form>
+                    </button>
+                </form>
             </li>
         </ul>
     </div>

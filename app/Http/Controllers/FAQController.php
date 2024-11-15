@@ -16,7 +16,7 @@ class FAQController extends Controller
 
     public function index()
     {
-        
+
 
         $faqs = FAQ::orderBy('created_at', 'desc')->get();
 
@@ -33,6 +33,26 @@ class FAQController extends Controller
 
         toast('FAQ Added', 'success');
 
+        return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(StoreFAQRequest $request, FAQ $faq)
+    {
+        $data = $request->validated();
+        $faq->update($data);
+
+        toast('FAQ Updated', 'success');
+
+        return redirect()->back();
+    }
+
+    public function destroy(FAQ $faq)
+    {
+        $faq->delete();
+        toast('FAQ Deleted', 'success');
         return redirect()->back();
     }
 }

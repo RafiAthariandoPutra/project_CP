@@ -18,7 +18,7 @@ class HeroController extends Controller
     public function index()
     {
 
-        
+
 
         $hero = Hero::first();
 

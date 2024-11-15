@@ -34,6 +34,12 @@ class ContactController extends Controller
         $data = $request->validated();
 
         Notification::route('mail', 'dhafinharon40@gmail')->notify(new ContactUs($data));
+
+
+        toast('Contact Send successfully', 'success');
+
+
+        return redirect()->back();
     }
 
     /**
