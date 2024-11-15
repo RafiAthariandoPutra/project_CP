@@ -132,6 +132,19 @@
             Cetak Company Profile
         </button>
     </form>
+
+    <div class="mt-12">
+        <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="file" class="block mb-2 text-base font-semibold">Choose Excel File</label>
+                <input type="file" name="file" id="file" class="form-control">
+            </div>
+            <button type="submit"
+                class="py-2 px-4 bg-slate-800 text-white hover:bg-transparent border-2  hover:text-black rounded-lg border-slate-800">Import
+                File</button>
+        </form>
+    </div>
     <div class="mt-12">
         <div class="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
             <div
@@ -734,7 +747,8 @@
                                             </line>
                                             <line id="SvgjsLine1465" x1="57.99824619293213" y1="0"
                                                 x2="57.99824619293213" y2="146.02963002967834" stroke="#dddddd"
-                                                stroke-dasharray="5" stroke-linecap="butt" class="apexcharts-gridline">
+                                                stroke-dasharray="5" stroke-linecap="butt"
+                                                class="apexcharts-gridline">
                                             </line>
                                             <line id="SvgjsLine1466" x1="86.9973692893982" y1="0"
                                                 x2="86.9973692893982" y2="146.02963002967834" stroke="#dddddd"

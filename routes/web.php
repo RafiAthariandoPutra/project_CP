@@ -58,6 +58,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name('dashboard');
     // CETAK DATA COMPANY PROFILE MENJADI PDF
     Route::get("/dashboard/cetak", [DashboardController::class, 'cetak'])->name('download.cetak');
+    // IMPORT DATA KE COMPANY PROFILE
+    Route::post('/import-excel', [DashboardController::class, 'import'])->name('import.excel');
 });
 
 Route::middleware(['auth', 'verified', 'projectAdmin'])->group(function () {
